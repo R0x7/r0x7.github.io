@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Projects by R0x7: Android apps, a Garmin lap timer, and Ularn.">
+<title>R0x7 Projects</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a short intro, then one grid of equal project cards; each card has platform chip, title, description, tech tags, actions. */
+:root {
+  --bg: #f2f5f7;
+  --surface: #ffffff;
+  --fg: #16222b;
+  --muted: #5b6b78;
+  --line: #d6dee5;
+  --accent: #0e6f7a;
+  --accent-fg: #ffffff;
+  --chip: #e2eef0;
+  --display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1518; --surface: #182024; --fg: #e8eef1; --muted: #93a3ad;
+    --line: #2a353b; --accent: #4fc3cf; --accent-fg: #0b1316; --chip: #1f2d31;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1518; --surface: #182024; --fg: #e8eef1; --muted: #93a3ad;
+  --line: #2a353b; --accent: #4fc3cf; --accent-fg: #0b1316; --chip: #1f2d31;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body);
+  font-size: 16px; line-height: 1.55;
+  margin: 0;
+  padding-block: 40px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 36px; }
+header { display: grid; gap: 12px; max-width: 640px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 5vw, 44px); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+header p { margin: 0; color: var(--muted); max-width: 60ch; }
+header a { color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px; display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 12px; min-width: 0;
+}
+.top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.chip { font-family: var(--mono); font-size: 12px; padding: 3px 9px; border-radius: 999px; background: var(--chip); color: var(--fg); white-space: nowrap; }
+.lang { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0; line-height: 1.2; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tags span { font-family: var(--mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 2px 7px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; }
+.btn {
+  font-family: var(--display); font-weight: 500; font-size: 14px; text-decoration: none;
+  padding: 8px 14px; border-radius: 6px; border: 1px solid var(--accent); color: var(--accent);
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn:hover, .btn:focus-visible { filter: brightness(1.08); outline: 2px solid var(--accent); outline-offset: 2px; }
+.note { font-family: var(--mono); font-size: 12px; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; }
+.note b { color: var(--fg); font-weight: 500; font-variant-numeric: tabular-nums; }
+.tail { display: grid; gap: 6px; color: var(--muted); font-size: 14px; }
+.tail a { color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: filter .15s; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">github.com/R0x7</div>
+    <h1>Apps for phones, watches, and dungeons</h1>
+    <p>A collection of the things I've built and shipped. Most are open source, and the Android ones have a ready-to-install APK so you can try them without a build setup.</p>
+  </header>
+
+  <section class="grid">
+
+    <article class="card">
+      <div class="top"><span class="chip">Android</span><span class="lang">Kotlin</span></div>
+      <h2>WhistleSong</h2>
+      <p>Whistle a melody and the app autotunes it, works out the key, then composes the rest of the song in a style you pick. Everything runs on-device and offline, with no network or API keys.</p>
+      <div class="tags"><span>YIN pitch tracking</span><span>Markov composition</span><span>built-in synth</span><span>6 styles</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/WhistleSong/releases/latest">Download APK</a>
+        <a class="btn" href="https://github.com/R0x7/WhistleSong">View code</a>
+      </div>
+      <div class="note">Tracks <b>350–4200 Hz</b> · snaps to a 16th-note grid · 8-Bit, Rock, Lo-Fi, Synthwave, Jazz, Music Box</div>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="chip">Android</span><span class="lang">C · Kotlin</span></div>
+      <h2>Ularn for Android</h2>
+      <p>A port of Ularn 1.6.3a, Julian Olds' graphical roguelike, with the original tiles and fully customizable on-screen controls. The C game core runs almost unmodified through the NDK; the UI is Kotlin.</p>
+      <div class="tags"><span>NDK / JNI</span><span>pinch-zoom map</span><span>save slots</span><span>TalkBack</span><span>GPL v2</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/android-ularn/releases/latest/download/ularn.apk">Download APK</a>
+        <a class="btn" href="https://github.com/R0x7/android-ularn">View code</a>
+      </div>
+      <div class="note">Android <b>7.0+</b> · arm64, armv7, x86_64 · checkpoints every <b>25</b> moves</div>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="chip">Garmin · Connect IQ</span><span class="lang">Monkey C</span></div>
+      <h2>GarminRace</h2>
+      <p>A GPS lap timer for track days and motorsport, built for the Garmin Venu 2. Start/finish lines are timed to the hundredth by interpolating between GPS fixes, with sectors, live delta to your record lap, and FIT export to Garmin Connect.</p>
+      <div class="tags"><span>circuit / sprint / drag</span><span>split lines</span><span>heart rate</span><span>FIT activities</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/GarminRace">View code</a>
+      </div>
+      <div class="note">Timed to <b>0.01 s</b> · 25 m capture radius · up to <b>20</b> saved tracks</div>
+    </article>
+
+    <article class="card">
+      <div class="top"><span class="chip">Web</span><span class="lang">C</span></div>
+      <h2>Ularn</h2>
+      <p>Ularn 1.6.3a preserved in its original form: the C source with the TTY, X11, Win32, and Amiga front ends, kept as the upstream for the Android port and other projects.</p>
+      <div class="tags"><span>roguelike</span><span>2004 source</span><span>curses / X11</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/ularn-1.6.3a">Visit site</a>
+        <a class="btn" href="https://github.com/R0x7/ularn-1.6.3a">View source</a>
+      </div>
+      <div class="note">Patchlevel <b>3a</b> · May 2004 · upstream for Ularn for Android</div>
+    </article>
+
+  </section>
+
+  <div class="tail">
+    <span>Also on GitHub: an RGB LED matrix controller (C++) and Marlin and OrcaSlicer forks for 3D printing.</span>
+    <a href="https://github.com/R0x7?tab=repositories">See all repositories</a>
+  </div>
+</div>
+</body>
+</html>
