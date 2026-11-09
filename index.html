@@ -107,6 +107,14 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
 .whistle-legend { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .whistle-legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
 
+.term { background: #0b0e0e; border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; box-shadow: var(--shadow); font-family: var(--mono); font-size: 13px; color: #c9d4cf; min-width: 0; }
+.term-line { overflow-wrap: anywhere; line-height: 1.5; }
+.term .prompt { color: #f2b53a; margin-right: 6px; }
+.term-note { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #7f8f89; }
+.tool-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+.tool-grid span { border: 1px solid #27352f; border-radius: 4px; padding: 3px 8px; color: #e9eeec; }
+.cap code, .copy code { font-family: var(--mono); font-size: .9em; }
+
 /* more projects: compact cards for every public repo not featured above */
 .more { padding-top: 56px; display: grid; gap: 28px; }
 .more h3 { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin: 0; color: var(--muted); font-weight: 500; }
@@ -142,9 +150,10 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
     <div class="mast-top">
       <div class="handle">github.com/<b>R0x7</b></div>
       <nav class="nav">
-        <a href="#whistlesong">WhistleSong</a>
         <a href="#ularn">Ularn</a>
+        <a href="#py-ularn">py-ularn</a>
         <a href="#garminrace">GarminRace</a>
+        <a href="#whistlesong">WhistleSong</a>
         <a href="#more">More</a>
         <a href="https://github.com/R0x7">GitHub</a>
       </nav>
@@ -154,31 +163,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
     <div class="platforms"><span>Android · Kotlin</span><span>Android · NDK</span><span>Garmin · Connect IQ</span><span>Web · WebAssembly</span></div>
   </header>
 
-  <section class="feature" id="whistlesong">
-    <div class="shots">
-      <div class="whistle">
-        <canvas id="whistle-canvas" width="1200" height="520" aria-label="A whistled pitch trace being snapped to notes on a 16th-note grid"></canvas>
-        <div class="whistle-legend"><span><i style="background:var(--muted)"></i>raw whistle pitch</span><span><i style="background:var(--accent)"></i>autotuned notes</span><span><i style="background:var(--line)"></i>16th-note grid</span></div>
-      </div>
-      <div class="cap">How the app hears you: pitch is tracked live, then snapped to the key and quantized to the grid before the band joins in.</div>
-    </div>
-    <div class="copy">
-      <div class="kicker"><i></i>Android · Kotlin</div>
-      <h2>WhistleSong</h2>
-      <p>Whistle a melody into your phone and the app autotunes it, finds the key, then writes the rest of the song around it in a style you pick. Bass, chords, and drums are arranged and rendered by a small built-in synth. Everything runs on-device and offline, with no network and no API keys.</p>
-      <dl class="specs">
-        <div><dt>Pitch range</dt><dd>350–4200 Hz</dd></div>
-        <div><dt>Styles</dt><dd>6</dd></div>
-        <div><dt>Grid</dt><dd>1/16 note</dd></div>
-      </dl>
-      <div class="tags"><span>YIN pitch detector</span><span>Markov composer</span><span>8-Bit</span><span>Rock</span><span>Lo-Fi</span><span>Synthwave</span><span>Jazz</span><span>Music Box</span></div>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/R0x7/WhistleSong/releases/latest">Download APK</a>
-        <a class="btn" href="https://github.com/R0x7/WhistleSong">View code</a>
-      </div>
-    </div>
-  </section>
-
+  <!-- featured:start: highlighted projects, ranked by recent activity and how impressive they are -->
   <section class="feature" id="ularn">
     <div class="shots">
       <div class="shot"><img src="img/ularn-start.png" width="785" height="520" alt="Ularn Web start screen with name, character, and Wild Edition options"></div>
@@ -205,7 +190,30 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
       </div>
     </div>
   </section>
-
+  <section class="feature" id="py-ularn">
+    <div class="shots">
+      <div class="term">
+        <div class="term-line"><span class="prompt">$</span> claude mcp add pyularn -- python -m pyularn.mcp_server --watch 8765</div>
+        <div class="term-note">MCP tools an agent can call</div>
+        <div class="tool-grid"><span>new_game</span><span>send_keys</span><span>move</span><span>get_screen</span><span>get_state</span><span>key_reference</span><span>end_game</span><span>explore</span><span>travel_to</span><span>take_stairs</span><span>fight</span><span>flee</span><span>buy</span><span>summarize_run</span><span>list_runs</span><span>get_run</span></div>
+      </div>
+      <div class="cap">From the README. With <code>--watch</code>, a spectator page at localhost:8765 draws the game with the original sprite tiles, plus the agent's stats, recent keys and an "Agent thoughts" log.</div>
+    </div>
+    <div class="copy">
+      <div class="kicker"><i></i>Python · MCP server</div>
+      <h2>py-ularn</h2>
+      <p>A function-by-function Python port of Ularn 1.6.3a that keeps the original formulas, messages and quirks. Play it in a terminal, or with <code>--web</code> in a browser using the original 32×32 sprite tiles. It also includes an MCP server so AI agents can play, with seeded games for replays, recorded runs and post-mortems.</p>
+      <dl class="specs">
+        <div><dt>Python</dt><dd>3.10+</dd></div>
+        <div><dt>Dependencies</dt><dd>none</dd></div>
+        <div><dt>MCP tools</dt><dd>16</dd></div>
+      </dl>
+      <div class="tags"><span>Terminal + web</span><span>Sprite tiles</span><span>MCP over stdio</span><span>Seeded replays</span><span>Live spectator page</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/py-ularn">View code</a>
+      </div>
+    </div>
+  </section>
   <section class="feature" id="garminrace">
     <div class="shots">
       <div class="shot watch"><img src="img/garmin-screens.png" width="1288" height="892" alt="Six GarminRace watch screens: ready, armed, running lap, behind record, new best, and lap done"></div>
@@ -227,6 +235,32 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
       </div>
     </div>
   </section>
+  <section class="feature" id="whistlesong">
+    <div class="shots">
+      <div class="whistle">
+        <canvas id="whistle-canvas" width="1200" height="520" aria-label="A whistled pitch trace being snapped to notes on a 16th-note grid"></canvas>
+        <div class="whistle-legend"><span><i style="background:var(--muted)"></i>raw whistle pitch</span><span><i style="background:var(--accent)"></i>autotuned notes</span><span><i style="background:var(--line)"></i>16th-note grid</span></div>
+      </div>
+      <div class="cap">How the app hears you: pitch is tracked live, then snapped to the key and quantized to the grid before the band joins in.</div>
+    </div>
+    <div class="copy">
+      <div class="kicker"><i></i>Android · Kotlin</div>
+      <h2>WhistleSong</h2>
+      <p>Whistle a melody into your phone and the app autotunes it, finds the key, then writes the rest of the song around it in a style you pick. Bass, chords, and drums are arranged and rendered by a small built-in synth. Everything runs on-device and offline, with no network and no API keys.</p>
+      <dl class="specs">
+        <div><dt>Pitch range</dt><dd>350–4200 Hz</dd></div>
+        <div><dt>Styles</dt><dd>6</dd></div>
+        <div><dt>Grid</dt><dd>1/16 note</dd></div>
+      </dl>
+      <div class="tags"><span>YIN pitch detector</span><span>Markov composer</span><span>8-Bit</span><span>Rock</span><span>Lo-Fi</span><span>Synthwave</span><span>Jazz</span><span>Music Box</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/R0x7/WhistleSong/releases/latest">Download APK</a>
+        <a class="btn" href="https://github.com/R0x7/WhistleSong">View code</a>
+      </div>
+    </div>
+  </section>
+  <!-- featured:end -->
+
 
   <!-- projects:start: generated list of every public repo; the feature rows above are the highlights -->
   <section class="more" id="more">
@@ -262,12 +296,6 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
     <div class="group">
       <h5>More Ularn</h5>
       <div class="cards">
-        <article class="card">
-          <div class="card-kicker">Python</div>
-          <h4><a href="https://github.com/R0x7/py-ularn">py-ularn</a></h4>
-          <p>A function-by-function Python port of Ularn 1.6.3a, playable in the terminal or in a browser with the original sprite tiles, plus an MCP server so AI agents can play it.</p>
-          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/py-ularn">Code</a></div>
-        </article>
         <article class="card">
           <div class="card-kicker">C</div>
           <h4><a href="https://github.com/R0x7/ularn-1.6.3a">ularn-1.6.3a</a></h4>
