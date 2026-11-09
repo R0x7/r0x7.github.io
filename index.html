@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Projects by R0x7: WhistleSong and Ularn for Android, GarminRace for Garmin watches, and Ularn in the browser.">
+<meta name="description" content="Projects by R0x7: WhistleSong and Ularn for Android, GarminRace for Garmin watches, Ularn in the browser, plus GasLog, WhistleIdentify, py-ularn and more.">
 <title>R0x7 Projects</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
@@ -107,11 +107,23 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
 .whistle-legend { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .whistle-legend i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
 
-/* footer */
-.more { padding-top: 48px; border-top: 1px solid var(--line); display: grid; gap: 10px; color: var(--muted); font-size: 15px; }
+/* more projects: compact cards for every public repo not featured above */
+.more { padding-top: 56px; display: grid; gap: 28px; }
 .more h3 { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; margin: 0; color: var(--muted); font-weight: 500; }
-.more ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
-.more li b { color: var(--fg); font-weight: 500; }
+.group { display: grid; gap: 12px; }
+.group h5 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card-kicker { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.badge { border: 1px solid var(--line); border-radius: 999px; padding: 1px 7px; }
+.card h4 { font-family: var(--display); font-weight: 600; font-size: 20px; margin: 0; line-height: 1.15; overflow-wrap: anywhere; }
+.card h4 a { color: var(--fg); text-decoration: none; }
+.card h4 a:hover, .card h4 a:focus-visible { color: var(--accent); }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.card-foot { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 4px; }
+.card-foot a { text-decoration: none; }
+.card-foot a:hover, .card-foot a:focus-visible { text-decoration: underline; }
+.all { font-size: 15px; }
 
 @media (max-width: 820px) {
   .feature { grid-template-columns: 1fr; gap: 28px; padding-block: 44px; }
@@ -133,6 +145,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
         <a href="#whistlesong">WhistleSong</a>
         <a href="#ularn">Ularn</a>
         <a href="#garminrace">GarminRace</a>
+        <a href="#more">More</a>
         <a href="https://github.com/R0x7">GitHub</a>
       </nav>
     </div>
@@ -215,17 +228,85 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
     </div>
   </section>
 
-  <footer class="more">
-    <h3>Also on GitHub</h3>
-    <ul>
-      <li><b><a href="https://github.com/R0x7/py-ularn">py-ularn</a></b> · Python port of Ularn 1.6.3a, with an MCP server for AI play</li>
-      <li><b><a href="https://github.com/R0x7/pihole-dashboard">pihole-dashboard</a></b> · Windows desktop dashboard for Pi-hole v6: query graphs, top blocked domains and top clients (TypeScript)</li>
-      <li><b>rgb-matrix</b> · an RGB LED matrix controller in C++</li>
-      <li><b>ularn-1.6.3a</b> · the untouched upstream source, kept as the base for the ports above</li>
-      <li><b>OrcaSlicer-bambulab</b> and <b>Marlin Configurations</b> · 3D-printing forks</li>
-    </ul>
-    <a href="https://github.com/R0x7?tab=repositories">See all repositories</a>
-  </footer>
+  <!-- projects:start: generated list of every public repo; the feature rows above are the highlights -->
+  <section class="more" id="more">
+    <h3>More projects</h3>
+    <div class="group">
+      <h5>Android</h5>
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Android · Kotlin</div>
+          <h4><a href="https://github.com/R0x7/GasLog">GasLog</a></h4>
+          <p>Snap the pump, Trip A and the odometer; Gemini reads the numbers, you check them, and one tap adds a row to your Google Sheet. Includes a live scan mode that reads the numbers on the phone and works offline.</p>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/GasLog">Code</a></div>
+        </article>
+      </div>
+    </div>
+    <div class="group">
+      <h5>Web &amp; desktop</h5>
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Web · JavaScript</div>
+          <h4><a href="https://github.com/R0x7/WhistleIdentify">WhistleIdentify</a></h4>
+          <p>Whistle a tune into the microphone and it tells you which song it is. Runs entirely in the browser with no server, and you can teach it new songs. Also wrapped as an Android app.</p>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/WhistleIdentify">Code</a></div>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Windows · TypeScript</div>
+          <h4><a href="https://github.com/R0x7/pihole-dashboard">pihole-dashboard</a></h4>
+          <p>A desktop widget for Pi-hole v6 that shows query graphs, top blocked domains and top clients, and stays on the desktop behind your other windows.</p>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/pihole-dashboard">Code</a></div>
+        </article>
+      </div>
+    </div>
+    <div class="group">
+      <h5>More Ularn</h5>
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Python</div>
+          <h4><a href="https://github.com/R0x7/py-ularn">py-ularn</a></h4>
+          <p>A function-by-function Python port of Ularn 1.6.3a, playable in the terminal or in a browser with the original sprite tiles, plus an MCP server so AI agents can play it.</p>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/py-ularn">Code</a></div>
+        </article>
+        <article class="card">
+          <div class="card-kicker">C</div>
+          <h4><a href="https://github.com/R0x7/ularn-1.6.3a">ularn-1.6.3a</a></h4>
+          <p>The untouched upstream source, kept as the base for the ports above.</p>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/ularn-1.6.3a">Code</a></div>
+        </article>
+      </div>
+    </div>
+    <div class="group">
+      <h5>Hardware</h5>
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">C++</div>
+          <h4><a href="https://github.com/R0x7/rgb-matrix">rgb-matrix</a></h4>
+          <p>An RGB LED matrix controller in C++.</p>
+          <div class="card-foot"><span>Updated Mar 2026</span><a href="https://github.com/R0x7/rgb-matrix">Code</a></div>
+        </article>
+      </div>
+    </div>
+    <div class="group">
+      <h5>3D-printing forks</h5>
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Fork</div>
+          <h4><a href="https://github.com/R0x7/OrcaSlicer-bambulab">OrcaSlicer-bambulab</a></h4>
+          <p>OrcaSlicer with BambuNetwork support restored for Bambu Lab printers, so internet access and printing work as before.</p>
+          <div class="card-foot"><span>Updated Apr 2026</span><a href="https://github.com/R0x7/OrcaSlicer-bambulab">Code</a></div>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Fork<span class="badge">Archived</span></div>
+          <h4><a href="https://github.com/R0x7/Configurations">Configurations</a></h4>
+          <p>Marlin firmware configurations.</p>
+          <div class="card-foot"><span>Updated Nov 2022</span><a href="https://github.com/R0x7/Configurations">Code</a></div>
+        </article>
+      </div>
+    </div>
+    <a class="all" href="https://github.com/R0x7?tab=repositories">See all repositories</a>
+  </section>
+  <!-- projects:end -->
 </div>
 
 <script>
