@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy policy for R0x7's race-uploader tool and other R0x7 projects.">
+<title>Privacy Policy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --bg: #0e1513; --surface: #182320; --fg: #e9eeec; --muted: #98a8a2;
+  --line: #27352f; --accent: #f2b53a;
+  --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f2ec; --surface: #ffffff; --fg: #1b2320; --muted: #5d6b66;
+    --line: #d9d5c9; --accent: #9a6300; color-scheme: light;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1513; --surface: #182320; --fg: #e9eeec; --muted: #98a8a2;
+  --line: #27352f; --accent: #f2b53a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 var(--body); }
+main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+a { color: var(--accent); }
+.back { font-size: 14px; color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--accent); }
+h1 { font: 700 clamp(30px, 6vw, 42px)/1.1 var(--display); margin: 20px 0 6px; }
+.updated { color: var(--muted); font-size: 14px; margin: 0 0 32px; }
+h2 { font: 600 20px/1.3 var(--display); margin: 36px 0 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+ul { padding-left: 20px; }
+li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./">&larr; R0x7 Projects</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated November 11, 2026</p>
+
+  <p>This policy covers <strong>race-uploader</strong>, a personal tool that turns my own race-car
+  camera footage into a combined video and uploads it to my own YouTube channel. It also applies to
+  the other projects listed on this site.</p>
+
+  <h2>What race-uploader accesses</h2>
+  <p>The tool signs in with Google and asks for permission to manage your YouTube account
+  (the <code>youtube.upload</code> and <code>youtube</code> scopes). It uses that permission only to:</p>
+  <ul>
+    <li>upload the video files you point it at, with the title, description and tags you provide;</li>
+    <li>set the video's thumbnail;</li>
+    <li>add the uploaded video to a playlist you name.</li>
+  </ul>
+  <p>It does not read, change or delete any other videos, comments, subscriptions or account data.</p>
+
+  <h2>Where your data goes</h2>
+  <ul>
+    <li>The tool runs entirely on your own computer. There is no server, database or analytics.</li>
+    <li>Your Google sign-in token is saved only in a local file (<code>token.json</code>) on your computer.</li>
+    <li>Video files and metadata are sent only to YouTube, through Google's official API.</li>
+    <li>Nothing is collected by, shared with, or sold to the developer or any third party.</li>
+  </ul>
+
+  <h2>Google API Services</h2>
+  <p>race-uploader uses YouTube API Services. By using it you agree to the
+  <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of
+  your data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+  The tool's use of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+  including the Limited Use requirements.</p>
+
+  <h2>Revoking access</h2>
+  <p>You can remove the tool's access at any time at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>,
+  or at <a href="https://security.google.com/settings/security/permissions">Google security settings</a>.
+  Deleting <code>token.json</code> also removes the saved sign-in from your computer.</p>
+
+  <h2>Other projects</h2>
+  <p>The apps and games on this site do not collect personal information unless their own page
+  says otherwise.</p>
+
+  <h2>Contact</h2>
+  <p>Questions: open an issue at <a href="https://github.com/R0x7">github.com/R0x7</a>.</p>
+</main>
+</body>
+</html>
