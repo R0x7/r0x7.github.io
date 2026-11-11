@@ -65,6 +65,19 @@ li { margin: 4px 0; }
     <li>Nothing is collected by, shared with, or sold to the developer or any third party.</li>
   </ul>
 
+  <h2>Data retention and deletion</h2>
+  <ul>
+    <li>race-uploader does not store any data it receives from YouTube API Services. The only thing it keeps
+    from an upload is the new video's link, written to a text file in your race folder.</li>
+    <li>Your Google sign-in token is kept in <code>token.json</code> on your computer until you delete it or
+    revoke access. Deleting that file removes all stored authorization data from your computer.</li>
+    <li>After you revoke access (see below), race-uploader can no longer reach your account, and any saved
+    token stops working.</li>
+    <li>The developer holds no copy of your data, so there is nothing to delete on the developer's side.
+    Videos you upload remain on YouTube and are managed or deleted in
+    <a href="https://studio.youtube.com">YouTube Studio</a>.</li>
+  </ul>
+
   <h2>Google API Services</h2>
   <p>race-uploader uses YouTube API Services. By using it you agree to the
   <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of
