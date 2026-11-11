@@ -166,7 +166,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
   <!-- featured:start: highlighted projects, ranked by recent activity and how impressive they are -->
   <section class="feature" id="ularn">
     <div class="shots">
-      <div class="shot"><img src="img/ularn-start.png" width="785" height="520" alt="Ularn Web start screen with name, character, and Wild Edition options"></div>
+      <div class="shot"><img src="img/ularn-start.png" width="785" height="560" alt="Ularn Web start screen with name, character, Wild Edition and Dungeon Radio options"></div>
       <div class="shot-pair">
         <div class="shot"><img src="img/ularn-class.jpg" width="800" height="600" alt="Ularn character class selection screen"></div>
         <div class="shot"><img src="img/ularn-map.png" width="800" height="600" alt="Ularn home level with the original tile graphics"></div>
@@ -195,8 +195,8 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
       <div class="shot"><img src="img/py-ularn-watch.png" width="932" height="536" alt="py-ularn spectator page: an agent on dungeon level 1 next to a hobgoblin and a throne, with the Agent thoughts log below"></div>
       <div class="term">
         <div class="term-line"><span class="prompt">$</span> claude mcp add pyularn -- python -m pyularn.mcp_server --watch 8765</div>
-        <div class="term-note">MCP tools an agent can call</div>
-        <div class="tool-grid"><span>new_game</span><span>send_keys</span><span>move</span><span>get_screen</span><span>get_state</span><span>key_reference</span><span>end_game</span><span>explore</span><span>travel_to</span><span>take_stairs</span><span>fight</span><span>flee</span><span>buy</span><span>summarize_run</span><span>list_runs</span><span>get_run</span></div>
+        <div class="term-note">Game and skill tools an agent can call</div>
+        <div class="tool-grid"><span>new_game</span><span>send_keys</span><span>move</span><span>get_screen</span><span>get_state</span><span>key_reference</span><span>end_game</span><span>explore</span><span>travel_to</span><span>pick_up</span><span>take_stairs</span><span>fight</span><span>flee</span><span>rest</span><span>buy</span><span>summarize_run</span><span>list_runs</span><span>get_run</span></div>
       </div>
       <div class="cap">The MCP server's live spectator page while a client drives the <code>explore</code> tool on level 1. Same sprite tiles as <code>pyularn --web</code>.</div>
     </div>
@@ -207,7 +207,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
       <dl class="specs">
         <div><dt>Python</dt><dd>3.10+</dd></div>
         <div><dt>Dependencies</dt><dd>none</dd></div>
-        <div><dt>MCP tools</dt><dd>16</dd></div>
+        <div><dt>MCP tools</dt><dd>30</dd></div>
       </dl>
       <div class="tags"><span>Terminal + web</span><span>Sprite tiles</span><span>MCP over stdio</span><span>Seeded replays</span><span>Live spectator page</span></div>
       <div class="actions">
@@ -274,7 +274,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
           <div class="card-kicker">Android · Kotlin</div>
           <h4><a href="https://github.com/R0x7/GasLog">GasLog</a></h4>
           <p>Snap the pump, Trip A and the odometer; Gemini reads the numbers, you check them, and one tap adds a row to your Google Sheet. Includes a live scan mode that reads the numbers on the phone and works offline.</p>
-          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/GasLog">Code</a></div>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/GasLog">Code</a><a href="https://github.com/R0x7/GasLog/releases/latest/download/GasLog.apk">APK</a></div>
         </article>
       </div>
     </div>
@@ -285,7 +285,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
           <div class="card-kicker">Web · JavaScript</div>
           <h4><a href="https://github.com/R0x7/WhistleIdentify">WhistleIdentify</a></h4>
           <p>Whistle a tune into the microphone and it tells you which song it is. Runs entirely in the browser with no server, and you can teach it new songs. Also wrapped as an Android app.</p>
-          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/WhistleIdentify">Code</a></div>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/WhistleIdentify">Code</a><a href="https://github.com/R0x7/WhistleIdentify/releases/download/android-latest/whistle-identify.apk">APK</a></div>
         </article>
         <article class="card">
           <div class="card-kicker">Windows · TypeScript</div>
@@ -302,7 +302,7 @@ h2 { font-family: var(--display); font-weight: 600; font-size: clamp(28px, 3.6vw
           <div class="card-kicker">Android · Web · C</div>
           <h4><a href="https://github.com/R0x7/ularn-wild">ularn-wild</a></h4>
           <p>Experimental "Wild Edition" of the Android Ularn port with off-the-wall extras such as a chiptune radio, monster trading cards, pets, fishing and a Polaroid camera. Installs beside the normal app, and every feature can be switched off.</p>
-          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/ularn-wild">Code</a><a href="https://r0x7.github.io/ularn-wild/">Play in browser</a><a href="https://github.com/R0x7/ularn-wild/releases/download/wild-latest/ularn-wild.apk">APK</a></div>
+          <div class="card-foot"><span>Updated Nov 2026</span><a href="https://github.com/R0x7/ularn-wild">Code</a><a href="https://github.com/R0x7/ularn-wild/releases/download/wild-latest/ularn-wild.apk">APK</a></div>
         </article>
         <article class="card">
           <div class="card-kicker">C</div>
