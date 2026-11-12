@@ -8,7 +8,7 @@
 :root {
   --bg: #0b0d10; --panel: #13161b; --line: #232831; --text: #e5e7eb;
   --muted: #8b93a1; --accent: #facc15; --hp: #4ade80; --hp-low: #f87171;
-  --mp: #60a5fa;
+  --mp: #60a5fa; --volc: #fb923c;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text);
@@ -101,22 +101,22 @@ kbd:last-child { border-color: var(--accent); color: var(--accent); }
 #runs .won, #best .won { color: var(--hp); }
 #picker h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em;
   color: var(--muted); font-weight: 600; margin: 0 0 8px; }
-#best { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  margin-bottom: 16px; }
+#best { margin-bottom: 8px; }
 #best[hidden] { display: none; }
-#best a, #runs a.top { border-color: var(--accent); position: relative;
-  background: linear-gradient(180deg, rgba(250, 204, 21, .08), var(--panel) 60%); }
-#best a.win, #runs a.top.win { border-color: var(--hp);
-  background: linear-gradient(180deg, rgba(74, 222, 128, .1), var(--panel) 60%); }
+#best h3 { font-size: 12px; font-weight: 600; color: var(--muted); margin: 0 0 6px; }
+#best h3 small { display: inline; font-weight: 400; margin-left: 6px; }
+#best .set { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-bottom: 12px; }
+#best a, #runs a.top { position: relative; border-color: var(--top, var(--accent));
+  background: linear-gradient(180deg, var(--top-bg, rgba(250, 204, 21, .08)), var(--panel) 60%); }
 #best a:hover, #best a:focus-visible, #runs a.top:hover, #runs a.top:focus-visible {
-  box-shadow: 0 0 0 1px var(--accent); }
-#best a.win:hover, #best a.win:focus-visible, #runs a.top.win:hover, #runs a.top.win:focus-visible {
-  box-shadow: 0 0 0 1px var(--hp); }
-#best b, #runs a.top b { padding-right: 100px; }
+  border-color: var(--top, var(--accent)); box-shadow: 0 0 0 1px var(--top, var(--accent)); }
+.win { --top: var(--hp); --top-bg: rgba(74, 222, 128, .1); }
+.volc { --top: var(--volc); --top-bg: rgba(251, 146, 60, .1); }
+#best b, #runs a.top b { padding-right: 120px; }
 .tag { position: absolute; top: 8px; right: 10px; font-size: 11px; font-weight: 600;
-  letter-spacing: .06em; text-transform: uppercase; color: #0b0d10; background: var(--accent);
-  padding: 1px 7px; border-radius: 999px; }
-.win .tag { background: var(--hp); }
+  letter-spacing: .06em; text-transform: uppercase; color: #0b0d10;
+  background: var(--top, var(--accent)); padding: 1px 7px; border-radius: 999px; }
 #scrub { display: flex; gap: 10px; align-items: center; max-width: 1640px; margin: 0 auto;
   padding: 12px 16px 0; color: var(--muted); font-variant-numeric: tabular-nums; }
 #seek { flex: 1; accent-color: var(--accent); min-width: 0; }
@@ -461,31 +461,36 @@ function describe(r) {
           r.turns != null ? r.turns + " turns" : ""].filter(Boolean).join(" · ")
     + "|" + end;
 }
-// The runs worth seeing first: every win (newest first), then the deepest
-// runs by dungeon level, with volcano depth and turns breaking ties.
-const N_BEST = 4;
-function depthOf(r) { return (r.deepest || 0) * 100 + (r.volcano || 0); }
+// The runs worth seeing first.  The potion is in the volcano, so volcano
+// depth is the better measure of progress; dungeon depth is the other.
+const N_BEST = 3;
+const byStart = (a, b) => (b.started || "").localeCompare(a.started || "");
+const SETS = [
+  { title: "Wins", note: "most recent first", cls: "win", n: Infinity,
+    pick: l => l.filter(r => r.won).sort(byStart), tag: () => "Won" },
+  { title: "Deepest in the volcano", note: "where the potion is", cls: "volc", n: N_BEST,
+    pick: l => l.filter(r => !r.won && r.volcano > 0)
+      .sort((a, b) => b.volcano - a.volcano || (b.deepest || 0) - (a.deepest || 0)
+                      || (b.turns || 0) - (a.turns || 0) || byStart(a, b)),
+    tag: r => "V" + r.volcano },
+  { title: "Deepest in the dungeon", note: "", cls: "dung", n: N_BEST,
+    pick: l => l.filter(r => !r.won && r.deepest > 0)
+      .sort((a, b) => b.deepest - a.deepest || (b.volcano || 0) - (a.volcano || 0)
+                      || (b.turns || 0) - (a.turns || 0) || byStart(a, b)),
+    tag: r => "DL" + r.deepest },
+];
 function pickBest(list) {
-  const wins = list.filter(r => r.won)
-    .sort((a, b) => (b.started || "").localeCompare(a.started || ""));
-  const deep = list.filter(r => !r.won && r.deepest != null)
-    .sort((a, b) => depthOf(b) - depthOf(a) || (b.turns || 0) - (a.turns || 0)
-                    || (b.started || "").localeCompare(a.started || ""));
-  const out = new Map();
-  for (const r of wins) out.set(r.id, "Won");
-  const ord = ["Deepest", "2nd deepest", "3rd deepest", "4th deepest"];
-  for (const r of deep) {
-    const n = out.size - wins.length;
-    if (out.size >= Math.max(N_BEST, wins.length)) break;
-    out.set(r.id, ord[n] || (n + 1) + "th deepest");
-  }
-  return out;  // insertion order is the display order
+  const out = new Map();  // id -> { set, tag }
+  for (const set of SETS)
+    for (const r of set.pick(list).filter(r => !out.has(r.id)).slice(0, set.n))
+      out.set(r.id, { set, tag: set.tag(r) });
+  return out;
 }
-function card(r, selected, tag) {
+function card(r, selected, top) {
   const a = document.createElement("a");
   a.href = "?run=" + encodeURIComponent(r.id);
   if (r.id === selected) a.setAttribute("aria-current", "true");
-  if (r.won) a.classList.add("win");
+  if (top) a.classList.add("top", top.set.cls);
   const [line, end] = describe(r).split("|");
   const b = document.createElement("b");
   b.textContent = (r.started || r.id).slice(0, 16).replace("T", " ");
@@ -493,7 +498,7 @@ function card(r, selected, tag) {
   const s2 = document.createElement("small"); s2.textContent = end + (r.complete ? "" : " (replay ends early)");
   if (r.won) s2.className = "won";
   a.append(b, s1, s2);
-  if (tag) { const t = document.createElement("span"); t.className = "tag"; t.textContent = tag; a.appendChild(t); }
+  if (top) { const t = document.createElement("span"); t.className = "tag"; t.textContent = top.tag; a.appendChild(t); }
   a.onclick = ev => { ev.preventDefault(); history.pushState(null, "", a.href); route(); };
   return a;
 }
@@ -505,12 +510,17 @@ async function showList(selected) {
   const best = pickBest(list);
   $("best").innerHTML = ""; $("runs").innerHTML = "";
   $("best").hidden = $("best-h").hidden = !best.size;
-  for (const id of best.keys()) $("best").appendChild(card(list.find(r => r.id === id), selected, best.get(id)));
-  for (const r of list) {
-    const a = card(r, selected, best.get(r.id));
-    if (best.has(r.id)) a.classList.add("top");
-    $("runs").appendChild(a);
+  for (const set of SETS) {
+    const ids = [...best].filter(([, v]) => v.set === set).map(([id]) => id);
+    if (!ids.length) continue;
+    const h = document.createElement("h3");
+    h.textContent = set.title;
+    if (set.note) { const n = document.createElement("small"); n.textContent = set.note; h.appendChild(n); }
+    const grid = document.createElement("div"); grid.className = "set";
+    for (const id of ids) grid.appendChild(card(list.find(r => r.id === id), selected, best.get(id)));
+    $("best").append(h, grid);
   }
+  for (const r of list) $("runs").appendChild(card(r, selected, best.get(r.id)));
 }
 function feed() {
   // Hand the queue the next stretch of frames; tick() plays them.
