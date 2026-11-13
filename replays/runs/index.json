@@ -731,6 +731,23 @@
   "complete": true
  },
  {
+  "id": "20261112-103927-s1480664053",
+  "started": "2026-11-12T10:39:27-0800",
+  "seed": 1480664053,
+  "class": "Rogue",
+  "difficulty": 2,
+  "strategy": "ladder-d2",
+  "result": "won",
+  "won": true,
+  "reason": "a winner",
+  "turns": 11443,
+  "deepest": 2,
+  "volcano": 5,
+  "synopsis": "WON at difficulty 2 (Rogue, seed 1480664053), turn 11,443, score 708,219, CL16, HP 88/88, AC 19, WC 20. Plan: farm lemmings on DL1 to CL6, then run the altar enchant engine (DL1 and DL2 altars, 50-gold prayers). A store chest went +10 to +18 and sold for 602,961, which bought the lance of death, stainless plate and the kit. V1 lairs were cleared under stealth with the lance (CL8 to CL15). Went down via a V1 teleport trap, then V2 stairs and Z, to V5 (canned map 0). Took the cure from Lucifer using the L104/L161 lure: waited out stealth, stepped to distance 3, read hold, probed with sle, took the potion. Then read stealth and time warp. Climb: V4 (canned map 15) arrival 26,2 was a sealed diagonal pocket. Its only door, 25,5, was plugged by held dragons, so I broke hold by lancing one (accidentally, when the door opened sooner than expected). Walked out past sleepers under stealth and found V4's up stairs at 56,15 after lancing a naga beside an altar. V3 was a random (non-canned) maze, walked by single steps to the known up stairs at 43,4, lancing 4 sleepers in the way. On V2 an awake platinum dragon dodged one lance swing and did 54 psionic damage (88 to 34). Read hold, quaffed instant healing under hold, then lanced it. V1: lanced a green and a bronze dragon in the shaft corridor, climbed the shaft, walked home.",
+  "actions": 887,
+  "complete": true
+ },
+ {
   "id": "20261112-114947-s154121391",
   "started": "2026-11-12T11:49:47-0800",
   "seed": 154121391,
@@ -797,5 +814,22 @@
   "synopsis": "Difficulty 3, unseeded (seed 796165775), Rogue, ladder-d3. No tax owed. DL1 was a lemming hive: melee farming took me to CL6 by turn ~2,700 and CL7-8 later, but breeding lemmings plugged every corridor all game and cost hundreds of calls. Hard rules held: town at the first chest (sold 1,745, bought chain mail and a healing potion). Found a DL1 altar at 61,14. A DL2 chest (+2) went on the altar; the first 16 prayers took chain mail to +9 (AC 15). In town I read 6 unknown scrolls: enchant weapon, create artifact (leather armour), ENCHANT ARMOR (crumbled the +9 chain mail), spell extension, teleport, expanded awareness. I drank 6 unknown potions (treasure finding, charisma, poison, increase ability, gold detection, dizziness). An emerald sold for 700. The found chest reached about +6 (14,662) and I sold it to buy a store chest (+3 at purchase) plus 2 healing. 50-gold prayers took leather armour to +9 (AC 12 base) and the store chest +3 to +11 (zero weapon blessings in the first 36 prayers, then 4 in 18). An Esc on the altar prompt counted as 'ignore' and added Aggravate. A sword of slashing turned up on DL1; prayers took it +0 to +11. Death at turn 9,839: a batched refill picked up the 592-gold pile without dropping any, so the next 50-gold prayer left 542 carried. 50 < 542/10, so the gods were insulted and sent a demon prince, which killed a 45 HP CL8 character from full in one turn on DL1. The +11 sword (about 120k) and +11 chest (about 57k) were in the pack.",
   "actions": 321,
   "complete": false
+ },
+ {
+  "id": "20261112-144733-s1985288906",
+  "started": "2026-11-12T14:47:33-0800",
+  "seed": 1985288906,
+  "class": "Rogue",
+  "difficulty": 4,
+  "strategy": "ladder-d4",
+  "result": "stopped",
+  "won": false,
+  "reason": "stopped by the agent",
+  "turns": 6624,
+  "deepest": 2,
+  "volcano": 0,
+  "synopsis": null,
+  "actions": 181,
+  "complete": true
  }
 ]
