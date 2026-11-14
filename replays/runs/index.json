@@ -816,6 +816,23 @@
   "complete": false
  },
  {
+  "id": "20261112-134712-s1807377592",
+  "started": "2026-11-12T13:47:12-0800",
+  "seed": 1807377592,
+  "class": "Rogue",
+  "difficulty": 3,
+  "strategy": "ladder-d3",
+  "result": "won",
+  "won": true,
+  "reason": "a winner",
+  "turns": 6931,
+  "deepest": 3,
+  "volcano": 5,
+  "synopsis": "WON at difficulty 3 (Rogue, unseeded seed 1807377592), turn 6,931, score 607,132, CL16, HP 72/72, AC 31, WC 20. No tax was owed. DL1 (a lemming hive) gave leather +3, a ruby and a chest. The first town trip sold the chest and ruby for 2 healing potions and chain mail (AC 6), then a shield (AC 9). DL2 had an altar at 18,15 and a second chest (+2). Paid 50-gold prayers took it to +8 and chain and shield toward +9. A DL2 trap door dropped me to DL3, where centipedes and ants took STR to 5 because 4 missiles in a row fizzled. Unknown scrolls read on DL1 were enchant weapon (chest +9) and then teleport, which put me in town. Chest +9 sold for 28,961. A store chest and amulet went to +9 in about 27 prayers each (28,961 + 21,116 = 50k), which bought a sunsword. Two store enchant-weapon scrolls plus about 40 prayers took it to +9, then about 180 more prayers to +10, and it sold for 295,771. That bought the lance, 1 raise level (CL6), 2 hold, 2 instant healing, 2 teleport, mapping, 2 stealth and a time warp. I entered V1 at CL6 with stealth plus a back-4 time warp. I landed beside a sleeping spirit naga, lanced it after about 40 swings (CL12), and cleared about 30 sleepers in the lairs to CL16. The V1 chest (307,519), books (wtw, tel, lit, drain life, make wall, haste) and an energy ring +3 came from those lairs. A V1 shaft-up trip bought 4 enlightenment, mapping and heroism; I dropped 300k gold in town. Back down: V1 stairs to V2, wtw+Z to V1 and then town (bad luck), shaft again, V1 stairs to V2, Z to V3 (lanced 5 sleepers), Z to V5. V5 was canned map 7 (cure 5,3). With heroism (INT 24) I cast wall-walk and walked through the walls to 8,3, then went to 6,2, read hold, and cast tel at Lucifer ('resists' = marked). I backed off to 8,3 inside the wall. The hold dropped, he stepped east to 6,3, and I read the second hold at once. A tel probe at 5,3 gave 'There wasn't anything there!' and I took the cure from 6,2. I escaped along the top border wall to the up stairs at 46,5. Then V4 (enlightenment, stairs 49,8), V3 (enlightenment, stairs 27,4, wtw round a pit), and V2, where an up elevator beside the arrival stairs went to V1. I was boxed in by sleeping dragons on V1, so I read teleport, which landed in town, and walked home.",
+  "actions": 687,
+  "complete": true
+ },
+ {
   "id": "20261112-144733-s1985288906",
   "started": "2026-11-12T14:47:33-0800",
   "seed": 1985288906,
